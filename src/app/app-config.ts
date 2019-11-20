@@ -1,0 +1,1 @@
+export const API = ' http://rfids.ddns.net/api/v1/';

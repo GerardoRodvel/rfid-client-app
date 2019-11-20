@@ -1,0 +1,67 @@
+<div class="container">
+   
+
+   <div class="notification">
+      <div class="columns is-desktop half-mobile
+         is-one-quarter-tablet is-half-desktop is-half-widescreen
+         is-half-fullhd">
+
+
+
+         <div class="columns">
+            <div class="column">
+               <h1 class="title">Alumnos</h1>
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th><abbr><Strong>#</Strong></abbr></th>
+                        <th><Strong>Nombre</Strong></th>
+                        <th><abbr><Strong>Matricula</Strong></abbr></th>
+                        <th><abbr><Strong>Asignado a RFID</Strong></abbr></th>
+                     </tr>
+                  </thead>
+                  <tfoot>
+                     <tr>
+                        <th>1</th>
+                        <th>Talox</th>
+                        <th>181266</th>
+                        <th>False</th>
+
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
+
+            <div class="column">
+               <h1 class="title">Grupos</h1>
+
+               <div class="field">
+                  <div class="control">
+                     <div class="select is-primary">
+                        <select [(ngModel)]="selectGroup" (change)="getGrupo()">
+                           <option value="0">Seleccione Grupos</option>
+                           <option  *ngFor="let grupo of grupos">{{grupo}}</option>
+                        </select >
+                     </div>
+                  </div>
+               </div>   
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th><abbr><Strong>#</Strong></abbr></th>
+                        <th><Strong>Numero RFID</Strong></th>
+                        <th><abbr><Strong>Asignado a Alumno</Strong></abbr></th>
+                     </tr>
+                  </thead>
+                  <tfoot>
+                     <tr>
+                        <th>1</th>
+                        <th>1812xcxcbas12366</th>
+                        <th> False </th>
+
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
+         </div>
+      </div>

@@ -1,0 +1,82 @@
+<!--<button class="button is-succes" (click)="enviarMsj1()">Enviar msj a socket</button>
+<button class="button is-succes" (click)="enviarMsj2()">Ejecutar prueba 2</button>
+<button class="button is-succes" (click)="enviarMsj3()">Ejecutar prueba 3</button>
+<button class="button is-succes" (click)="enviarMsj4()">Ejecutar prueba 4</button>
+-->
+
+<app-barra></app-barra>
+<router-outlet></router-outlet>
+
+
+
+
+
+<div #modal1 class="modal">
+   <div class="modal-background"></div>
+   <div class="modal-card">
+     <header class="modal-card-head">
+       <p class="modal-card-title">Nuevo RFID detectado</p>
+       <button class="delete" aria-label="close" (click)="cerrarModal()"></button>
+     </header>
+     <section class="modal-card-body">
+       Desea registrar este RFID?
+     </section>
+     <footer class="modal-card-foot">
+       <button routerLink="/rfid" class="button is-success"(click)="cerrarModal()" >Ir a la vista</button>
+       <button class="button" (click)="cerrarModal()">Cancel</button>
+     </footer>
+   </div>
+ </div>
+
+ 
+<div #modal2 class="modal">
+   <div class="modal-background"></div>
+   <div class="modal-card">
+     <header class="modal-card-head">
+       <p class="modal-card-title">Asigar RFID</p>
+       <button class="delete" aria-label="close" (click)="cerrarModal()"></button>
+     </header>
+     <section class="modal-card-body">
+       <h1>Este rfid ya esta registrado</h1><Strong> Añadalo a un alumno</Strong>
+     </section>
+     <footer class="modal-card-foot">
+       <button routerLink="/home" class="button is-success" (click)="cerrarModal()">Aceptar</button>
+       <button class="button" (click)="cerrarModal()">Cancel</button>
+     </footer>
+   </div>
+ </div>
+
+
+ <div #modal3 class="modal">
+   <div class="modal-background"></div>
+   <div class="modal-card">
+     <header class="modal-card-head">
+       <p class="modal-card-title">Creando asistencia</p>
+       <button class="delete" aria-label="close" (click)="cerrarModal()"></button>
+     </header>
+     <section class="modal-card-body">
+       <h1>Registrado asistencia</h1>
+     </section>
+     <footer class="modal-card-foot">
+       <button class="button is-success" (click)="cerrarModal()"> Aceptar</button>
+       <button class="button" (click)="cerrarModal()">Cancel</button>
+     </footer>
+   </div>
+ </div>
+
+ <div #modal4 class="modal">
+   <div class="modal-background"></div>
+   <div class="modal-card">
+     <header class="modal-card-head">
+       <p class="modal-card-title">Ya tiene asistencia</p>
+       <button class="delete" aria-label="close" (click)="cerrarModal()"></button>
+     </header>
+     <section class="modal-card-body">
+       <h1>Este RFID ya tiene asistencia</h1>
+     </section>
+     <footer class="modal-card-foot">
+       <button class="button is-success" (click)="cerrarModal()"> Aceptar</button>
+       <button class="button" (click)="cerrarModal()">Cancel</button>
+     </footer>
+   </div>
+ </div>
