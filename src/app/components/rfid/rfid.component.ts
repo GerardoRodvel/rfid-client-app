@@ -20,7 +20,7 @@ export class RfidComponent implements OnInit {
   mensajesSubscription: Subscription
   mensajes: any[] = [];
 
-  constructor(private rfidService: RFIDService,
+  constructor(public rfidService: RFIDService,
     public fb: FormBuilder,
     private socektService: SocketService) {
 
