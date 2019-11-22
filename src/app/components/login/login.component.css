@@ -1,0 +1,60 @@
+.container_master{
+    max-width:100%;
+    height:auto;
+
+}
+
+.label{
+    text-align: left;
+}
+
+.img_back{
+    position: absolute;
+    right: 0; 
+    top: 0; 
+    z-index: -100; 
+    opacity: 0.75;
+    height: 100%;
+    width: 100%;
+
+}
+
+.fondo1{
+    top: 100px;
+    background: #4d5f6494;  
+    text-align: center;
+    display: center;
+    width: 800px;
+    height: 500px;
+    left: 0;
+    right: 0;
+    border-radius: 12px;
+   position:absolute;
+   margin: 0 auto;
+}
+
+.registro{
+    top: 50px;
+   position:absolute;
+   margin: 0 auto;
+   left: 0;
+   right: 0;
+   width:500px;
+}
+
+.btn_comenzar{
+    margin-top:15px;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    top: 30px;
+    width: 100%;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.title{
+    color:white; 
+}
+

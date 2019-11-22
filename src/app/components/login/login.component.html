@@ -1,0 +1,23 @@
+ 
+ <div class="container_master">
+        <img src="assets\g.jpg" class="img_back">
+
+        <div class="fondo1">
+            <div class="registro">
+               <h1 class="title">Iniciar Sesión</h1>
+                   <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+                     <label class="label">Usuario</label>
+                     <input class="input is-primary" type="text" 
+                     placeholder="Usuario" formControlName="username">
+
+                     <label class="label">Contraseña</label>
+                     <input class="input is-primary" type="password"
+                     placeholder="Password" formControlName="password">
+           
+                     <button type="submit" class="button is-success btn_comenzar">Comenzar</button>
+                  </form>
+             </div>
+  
+
+  

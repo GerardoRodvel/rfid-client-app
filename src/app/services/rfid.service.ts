@@ -5,9 +5,11 @@ import { Socket } from 'ngx-socket-io';
 import { API } from '../app-config';
 import { RFID } from '../models/rfid/rfid';
 import { SocketService } from './socket.service';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
+    'Authorization' : 'Token ' + localStorage.getItem('token'),
   })
 };
 
@@ -22,6 +24,7 @@ export class RFIDService {
 
   }
 
+
   enviarMSJ(cuerpo: string,msj:string) {
     const payload = {
       de: 'Angular',
@@ -33,8 +36,6 @@ export class RFIDService {
   getMessages() {
     return this.socketService.listen('mensaje-nuevo');
   }
-
-
 
   agregarAlumno(params:any):Observable<any> {
     return this.http.post(`${this.api}alumnos/`, params, httpOptions);

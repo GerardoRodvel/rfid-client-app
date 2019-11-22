@@ -5,12 +5,15 @@ import { AlumnosComponent } from './components/alumnos/alumnos.component';
 import { RfidComponent } from './components/rfid/rfid.component';
 import { AsistenciaComponent } from './components/asistencia/asistencia.component';
 import { GruposComponent } from './components/grupos/grupos.component';
-
+import { LoginComponent} from './components/login/login.component';
 
 const routes: Routes = [
   {
     path:'',
-    component:HomeComponent
+    component:LoginComponent
+  },{
+    path:'login',
+    component:LoginComponent
   },{
     path:'home',
     component:HomeComponent
@@ -27,6 +30,7 @@ const routes: Routes = [
     path:'grupos',
     component:GruposComponent
   }
+
 ];
 
 @NgModule({

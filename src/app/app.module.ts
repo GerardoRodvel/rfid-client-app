@@ -18,6 +18,8 @@ import { GruposComponent } from './components/grupos/grupos.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BarraComponent } from './components/barra/barra.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './services/login.service';
 
 
 
@@ -30,7 +32,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RfidComponent,
     GruposComponent,
     MenuComponent,
-    BarraComponent
+    BarraComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SocketIoModule.forRoot(config),
     NgbModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

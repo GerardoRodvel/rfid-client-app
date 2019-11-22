@@ -13,7 +13,7 @@ export class AlumnosComponent implements OnInit {
 
 
   registerForm: FormGroup;
-  constructor(private rfidService: RFIDService, private fb: FormBuilder,) { }
+  constructor(private rfidService: RFIDService, private fb: FormBuilder) { }
 
   ngOnInit() {
     // this.alumnos.push( 
