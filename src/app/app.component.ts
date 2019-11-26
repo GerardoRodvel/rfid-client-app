@@ -11,8 +11,10 @@ export class AppComponent implements OnInit {
   @ViewChild("modal2", { static: true }) modal2: ElementRef;
   @ViewChild("modal3", { static: true }) modal3: ElementRef;
   @ViewChild("modal4", { static: true }) modal4: ElementRef;
+  @ViewChild("modal5", { static: true }) modal5: ElementRef;
 
   title = 'RFID';
+  alumnos:any[];
 
   mensajesSubscription: Subscription;
   mensajes: any[] = [];
@@ -27,6 +29,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // this.rfidService.checkStatusSocket();
 
+    this.rfidService.getAlumnos().subscribe(response =>{
+      this.alumnos = response;
+      console.log(this.alumnos)
+      
+    })
+
     this.mensajesSubscription = this.rfidService.getMessages().subscribe(response => {
       console.log('mensaje desde el Servidor:',response);
       this.mensajes.push(response);
@@ -35,15 +43,19 @@ export class AppComponent implements OnInit {
       if(respuesta.validacion == 1){
         this.rfidService.selectedRFID.number_RFID = respuesta.cuerpo;
         console.log(this.rfidService.selectedRFID);
-        this.renderer.addClass(this.modal1.nativeElement, "is-active");
+        this.renderer.addClass(this.modal5.nativeElement, "is-active");
       }else if(respuesta.validacion == 2){
-        this.renderer.addClass(this.modal2.nativeElement, "is-active");
+        this.renderer.addClass(this.modal5.nativeElement, "is-active");
       }else if(respuesta.validacion == 3){
         this.renderer.addClass(this.modal3.nativeElement, "is-active");
-      }else{
+      }else if(respuesta.validacion == 4){
         this.renderer.addClass(this.modal4.nativeElement, "is-active");
-      }    
+      }else{
+        this.renderer.addClass(this.modal5.nativeElement, "is-active");
+      }   
     });
+
+    
   }
 
   enviarMsj1(){
@@ -71,6 +83,9 @@ export class AppComponent implements OnInit {
     this.renderer.removeClass(this.modal2.nativeElement, "is-active");
     this.renderer.removeClass(this.modal3.nativeElement, "is-active");
     this.renderer.removeClass(this.modal4.nativeElement, "is-active");
+    this.renderer.removeClass(this.modal5.nativeElement, "is-active");
+  }
+  getAlumnos(){
     
   }
 }
