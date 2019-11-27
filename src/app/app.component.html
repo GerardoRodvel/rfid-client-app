@@ -3,10 +3,6 @@
 <button class="button is-succes" (click)="enviarMsj3()">Ejecutar prueba 3</button>
 <button class="button is-succes" (click)="enviarMsj4()">Ejecutar prueba 4</button> -->
 
-
-
-
-
 <router-outlet></router-outlet>
 
 
@@ -81,51 +77,4 @@
  </div>
 
 
- <div #modal5 class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Lista de alumnos</p>
-      <button class="delete" aria-label="close" (click)="cerrarModal()"></button>
-    </header>
-    <section class="modal-card-body">
-      
-      <div class="columns">
-
-        <div class="column">
-          <!--  <h1 class="title">Lista de alumnos</h1> -->
-           <table class="table">
-              <thead>
-                 <tr>
-                    <th><abbr><Strong>#</Strong></abbr></th>
-                    <th><Strong>Nombre</Strong></th>
-                    <th><Strong>Last Name</Strong></th>
-                    <th><abbr><Strong>Matricula</Strong></abbr></th>
-                    
-                    <th><abbr><Strong>Num_RFID</Strong></abbr></th>
-                 </tr>
-              </thead>
-              <tfoot>
-                <tr *ngFor="let alumno of alumnos">
-                  <th> {{alumno.id}} </th>
-                  <th> {{alumno.name}} </th>
-                  <th> {{alumno.last_name}} </th>
-                  <th> {{alumno.matricula}} </th>
-                  
-                  <th> {{alumno.id_rfid}} </th>
-
-               </tr>
-              </tfoot>
-           </table>
-        </div>
-
-        
-     </div>
-
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success" (click)="cerrarModal()"> Aceptar</button>
-      <button class="button" (click)="cerrarModal()">Cancel</button>
-    </footer>
-  </div>
-</div>
+ 

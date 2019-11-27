@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   //images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   rfids: RFID[]
   alumnos: Alumno[];
-
+  rfid;
   selectedRFID: RFID;
   selectedStudent: Alumno;
   id_alumno;
@@ -45,9 +45,16 @@ export class HomeComponent implements OnInit {
       console.log(response);
     })
     
+    this.rfidService.getRFIDS().subscribe(response =>{
+      console.log(response);
+      this.rfids = response;
+    })
+    this.registerForm = this.fb.group({
+      number_RFID: ['', ],
+    });
+
     this.rfidService.getAlumnos().subscribe(response => {
       this.alumnos = response;
-      
       console.log(response);
       for (let i = 0; i < response.length; i++) {
         const element = response[i];
@@ -96,7 +103,7 @@ export class HomeComponent implements OnInit {
     this.registerForm2.controls['status'].setValue(true);
   }
 
-  asignar() {
+  /* asignar() {
     console.log(this.registerForm.value);
     this.rfidService.asignarRFIDAlumno(this.registerForm.value, this.id_alumno).subscribe(response => {
       console.log('Asigando con exito',response)
@@ -106,5 +113,5 @@ export class HomeComponent implements OnInit {
       console.log('Estatus rfid true',response)
     })
 
-  }
+  } */
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { RFIDService } from './services/rfid.service';
 import { Subscription } from 'rxjs';
+import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +16,10 @@ export class AppComponent implements OnInit {
 
   title = 'RFID';
   alumnos:any[];
-
+  id_alumno;
+  id_rfid;
+  registerForm: FormGroup;
+  registerForm2: FormGroup;
   mensajesSubscription: Subscription;
   mensajes: any[] = [];
 
@@ -43,7 +47,7 @@ export class AppComponent implements OnInit {
       if(respuesta.validacion == 1){
         this.rfidService.selectedRFID.number_RFID = respuesta.cuerpo;
         console.log(this.rfidService.selectedRFID);
-        this.renderer.addClass(this.modal5.nativeElement, "is-active");
+        this.renderer.addClass(this.modal1.nativeElement, "is-active");
       }else if(respuesta.validacion == 2){
         this.renderer.addClass(this.modal5.nativeElement, "is-active");
       }else if(respuesta.validacion == 3){
@@ -57,6 +61,7 @@ export class AppComponent implements OnInit {
 
     
   }
+
 
   enviarMsj1(){
     let msj = 'hola desde angular';

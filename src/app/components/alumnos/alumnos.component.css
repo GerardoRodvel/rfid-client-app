@@ -1,12 +1,24 @@
 .notification{
     background: #4d5f6494;  
-    left: 400px;
+    position: relative;
     width: 1000px;
     height: 500px;
 }
 
 .registro{
     position: relative;
-    left: 120px;
+    left: 80px;
 
+}
+
+.btn_registrar{
+    margin-top:15px;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    top: 30px;
+    width: 100%;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

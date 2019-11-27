@@ -1,12 +1,17 @@
-.carousel-item{
-    width: 100%;
-    height: 500px;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -moz-background-size: cover;
-    background-size:cover;
-}
 
 .slider img{
     width: 100%;
 }
+
+.alumnos{
+    top: 30px;
+    margin-left: 40px;
+    position: relative;
+}
+
+.rfids{
+    top: -210px;
+    position: relative;
+    left: 600px;
+}
+

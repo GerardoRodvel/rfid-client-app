@@ -10,17 +10,15 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class AlumnosComponent implements OnInit {
   alumnos:any[];
-
-
   registerForm: FormGroup;
+  
   constructor(private rfidService: RFIDService, private fb: FormBuilder) { }
 
   ngOnInit() {
     // this.alumnos.push( 
     //   {id:123, name:'gerardo' ,matricula:213, id_RFID:1233}
     //   )
-
-
+    
       this.registerForm = this.fb.group({
         name:'',
         last_name:'',
@@ -35,13 +33,14 @@ export class AlumnosComponent implements OnInit {
     this.rfidService.getAlumnos().subscribe(response =>{
       this.alumnos = response;
       console.log(this.alumnos)
-      
     })
   }
 
   crearAlumno(){
     this.rfidService.agregarAlumno(this.registerForm.value).subscribe(response =>{
       console.log('Guardado con exito: ',response);
+      this.registerForm.reset();
+      this.ngOnInit();
     })
   }
 
@@ -55,6 +54,4 @@ export class AlumnosComponent implements OnInit {
   }
 
   
-
-
 }
