@@ -1,4 +1,6 @@
-  export class RFID {
-   id:number
-   number_RFID:number
- }
+export class RFID {
+  id: number;
+  number_RFID: number;
+  date: number;
+  status: boolean;
+}
