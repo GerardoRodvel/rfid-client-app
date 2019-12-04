@@ -32,7 +32,6 @@ export class AlumnosComponent implements OnInit {
   getAlumnos() {
     this.rfidService.getAlumnos().subscribe(response => {
       this.alumnos = response;
-      console.log(this.alumnos)
     })
   }
 

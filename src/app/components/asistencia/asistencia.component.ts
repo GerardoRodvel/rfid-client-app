@@ -10,40 +10,29 @@ import { Asistencia } from 'src/app/models/asistencias/asistencia';
 })
 export class AsistenciaComponent implements OnInit {
 
-  asistencias:any[];
-  // alumnos:Alumno[];
-  j=0;
-  asistenciaDB:Asistencia;
+  asistencias: any[];
+  alumnos: any[];
+  j = 0;
+
   nombre;
-  constructor(private rfidService:RFIDService) { }
+  constructor(private rfidService: RFIDService) { }
 
   ngOnInit() {
+    // this.listenChanges();
+    this.getAsistencias();
+  }
 
-    this.rfidService.getAsistencias().subscribe(response=>{
-      console.log(response);
-      this.asistencias=response;
-      this.asistenciaDB = response
-      for (let i = 0; i < response.length; i++) {
-        // console.log("-------------------------",response)
-        const element = response[i];
-        this.rfidService.getAlumnosByID(element.id_alumno).subscribe(response =>{
-          console.log(response);
-          this.nombre = response.name;
-        })
-      }
+  listenChanges() {
+    this.rfidService.change.subscribe(response => {
+      this.getAsistencias();
     })
-    console.log(this.asistenciaDB)
+  }
+
+  getAsistencias() {
+    this.rfidService.getAsistencias().subscribe(response => {
+      this.asistencias = response;
+    })
   }
 
 
-  obtenerAlumnos(id){
-    var data;
-    // console.log("----------",id)
-    this.rfidService.getAlumnosByID(id).subscribe(response =>{
-      console.log(response.name); 
-      data = response.name
-    })
-    console.log(data)
-    return data;
-  }
 }

@@ -76,6 +76,7 @@ export class RFIDService {
   }
 
   getAsistencias(): Observable<any> {
+
     return this.http.get(`${this.api}asistencias/`, httpOptions);
   }
 }

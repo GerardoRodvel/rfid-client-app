@@ -46,12 +46,15 @@ export class AppComponent implements OnInit {
         this.rfidService.selectedRFID.number_RFID = respuesta.cuerpo;
         console.log(this.rfidService.selectedRFID);
         this.renderer.addClass(this.modal1.nativeElement, "is-active");
+
       } else if (respuesta.validacion == 2) {
         this.num_RFID = respuesta.cuerpo;
         this.getAlumnos();
         this.renderer.addClass(this.modal5.nativeElement, "is-active");
+
       } else if (respuesta.validacion == 3) {
         this.renderer.addClass(this.modal3.nativeElement, "is-active");
+
       } else if (respuesta.validacion == 4) {
         this.renderer.addClass(this.modal4.nativeElement, "is-active");
       }
@@ -83,6 +86,7 @@ export class AppComponent implements OnInit {
   }
   getAlumnos() {
     var z = 0;
+    this.listaAlumnos = [];
     this.rfidService.getAlumnos().subscribe(response => {
       this.alumnos = response;
       for (let i = 0; i < response.length; i++) {
