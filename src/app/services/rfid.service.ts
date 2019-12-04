@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Socket } from "ngx-socket-io";
@@ -20,6 +20,11 @@ export class RFIDService {
   api: string = API;
   socket2;
   selectedRFID: RFID = new RFID();
+
+
+  private render = false;
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
+
   constructor(
     private http: HttpClient,
     private socket: Socket,
@@ -61,11 +66,12 @@ export class RFIDService {
   }
 
   asignarRFIDAlumno(params: any, id): Observable<any> {
-    console.log(params);
+    this.change.emit(this.render);
     return this.http.put(`${this.api}alumnos/${id}`, params, httpOptions);
   }
   changeStatusRFID(params: any, id): Observable<any> {
     console.log(params)
+    this.change.emit(this.render);
     return this.http.put(`${this.api}rfids/${id}`, params, httpOptions);
   }
 

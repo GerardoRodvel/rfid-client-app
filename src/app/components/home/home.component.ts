@@ -23,37 +23,19 @@ export class HomeComponent implements OnInit {
   listaAlumnos: any = [];
   registerForm: FormGroup;
   registerForm2: FormGroup;
-  constructor(private rfidService: RFIDService, public fb: FormBuilder) {}
+  constructor(private rfidService: RFIDService, public fb: FormBuilder) { }
 
   ngOnInit() {
     var j = 0;
-    var z = 0;
 
-    this.rfidService.getRFIDS().subscribe(response => {
-      this.rfids = response;
-      for (let i = 0; i < response.length; i++) {
-        const element = response[i];
-        if (element.status != true) {
-          this.listaRFID[j] = element;
-          j++;
-        }
-      }
+
+    this.rfidService.change.subscribe(response => {
+      this.getAlumnos();
     });
 
-    this.rfidService.getAlumnos().subscribe(response => {
-      this.alumnos = response;
-      for (let i = 0; i < response.length; i++) {
-        const element = response[i];
-        if (
-          element.id_rfid == null ||
-          element.id_rfid == undefined ||
-          element.id_rfid == ""
-        ) {
-          this.listaAlumnos[z] = element;
-          z++;
-        }
-      }
-    });
+    this.getAlumnos();
+
+
 
     this.registerForm = this.fb.group({
       number_RFID: [""]
@@ -73,34 +55,23 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  selectStudent(alumno: any) {
-    console.log(alumno);
-    this.id_alumno = alumno.id;
-    this.registerForm.controls["id_rfid"].setValue(alumno.id_rfid);
-    this.registerForm.controls["id_alumno"].setValue(alumno.id);
-    this.registerForm.controls["last_name"].setValue(alumno.last_name);
-    this.registerForm.controls["matricula"].setValue(alumno.matricula);
+
+
+  getAlumnos() {
+    var z = 0;
+    this.rfidService.getAlumnos().subscribe(response => {
+      this.alumnos = response;
+      for (let i = 0; i < response.length; i++) {
+        const element = response[i];
+        if (
+          element.id_rfid == null ||
+          element.id_rfid == undefined ||
+          element.id_rfid == ""
+        ) {
+          this.listaAlumnos[z] = element;
+          z++;
+        }
+      }
+    });
   }
-  selectRFID(rfid) {
-    console.log(rfid);
-    this.selectRFID = rfid;
-    this.id_rfid = rfid.id;
-    this.registerForm.controls["id_rfid"].setValue(rfid.id);
-
-    this.registerForm2.controls["id"].setValue(rfid.id);
-    this.registerForm2.controls["number_rfid"].setValue(rfid.number_rfid);
-    this.registerForm2.controls["status"].setValue(true);
-  }
-
-  /* asignar() {
-    console.log(this.registerForm.value);
-    this.rfidService.asignarRFIDAlumno(this.registerForm.value, this.id_alumno).subscribe(response => {
-      console.log('Asigando con exito',response)
-    })
-
-    this.rfidService.changeStatusRFID(this.registerForm2.value, this.id_rfid).subscribe(response =>{
-      console.log('Estatus rfid true',response)
-    })
-
-  } */
 }

@@ -38,7 +38,7 @@ export class RfidComponent implements OnInit {
     public fb: FormBuilder,
     private socektService: SocketService,
     private renderer: Renderer2
-  ) {}
+  ) { }
 
   ngOnInit() {
     var z = 0;
@@ -60,16 +60,17 @@ export class RfidComponent implements OnInit {
           // this.renderer.addClass(this.modal5.nativeElement, "is-active");
         }
       });
+
+    this.rfidService.change.subscribe(response => {
+      this.getRFID();
+    });
   }
 
   //servicio para obtnener el RFID
 
   getRFID() {
     this.rfidService.getRFIDS().subscribe(response => {
-      console.log(response);
       this.rfids = response;
-
-      // this.rfidService.selectedRFID = response[0];//
     });
   }
 

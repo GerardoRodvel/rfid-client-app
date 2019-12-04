@@ -34,7 +34,9 @@ export class AppComponent implements OnInit {
     public fb: FormBuilder
   ) { }
   ngOnInit() {
-    // this.rfidService.checkStatusSocket();
+    this.rfidService.change.subscribe(response => {
+      this.getAlumnos();
+    });
 
     this.rfidService.getMessages().subscribe(response => {
       console.log("Nuevo msj :", response);
@@ -68,6 +70,8 @@ export class AppComponent implements OnInit {
       number_rfid: [""],
       status: [""]
     });
+
+    this.getAlumnos()
   }
 
   cerrarModal() {
@@ -115,13 +119,15 @@ export class AppComponent implements OnInit {
         this.registerForm2.controls["id"].setValue(this.id_rfid);
         this.registerForm2.controls["number_rfid"].setValue(rfid.number_rfid);
         this.registerForm2.controls["status"].setValue(true);
+
         this.rfidService
           .changeStatusRFID(this.registerForm2.value, this.id_rfid)
           .subscribe(response => {
             console.log("Estatus rfid true", response);
           });
+
+        this.ngOnInit();
       });
-    this.ngOnInit();
   }
 
   asignar(alumno: any) {
@@ -134,4 +140,6 @@ export class AppComponent implements OnInit {
 
     this.renderer.removeClass(this.modal5.nativeElement, "is-active");
   }
+
 }
+

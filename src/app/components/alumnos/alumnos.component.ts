@@ -9,36 +9,36 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./alumnos.component.css']
 })
 export class AlumnosComponent implements OnInit {
-  alumnos:any[];
+  alumnos: any[];
   registerForm: FormGroup;
-  
+
   constructor(private rfidService: RFIDService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    // this.alumnos.push( 
-    //   {id:123, name:'gerardo' ,matricula:213, id_RFID:1233}
-    //   )
-    
-      this.registerForm = this.fb.group({
-        name:'',
-        last_name:'',
-        matricula:'',
-        id_rfid:'',
-      });
-
+    this.rfidService.change.subscribe(response => {
       this.getAlumnos();
+    });
+
+    this.registerForm = this.fb.group({
+      name: '',
+      last_name: '',
+      matricula: '',
+      id_rfid: '',
+    });
+
+    this.getAlumnos();
   }
 
-  getAlumnos(){
-    this.rfidService.getAlumnos().subscribe(response =>{
+  getAlumnos() {
+    this.rfidService.getAlumnos().subscribe(response => {
       this.alumnos = response;
       console.log(this.alumnos)
     })
   }
 
-  crearAlumno(){
-    this.rfidService.agregarAlumno(this.registerForm.value).subscribe(response =>{
-      console.log('Guardado con exito: ',response);
+  crearAlumno() {
+    this.rfidService.agregarAlumno(this.registerForm.value).subscribe(response => {
+      console.log('Guardado con exito: ', response);
       this.registerForm.reset();
       this.ngOnInit();
     })
@@ -46,12 +46,12 @@ export class AlumnosComponent implements OnInit {
 
   //Servicio para obtener alumnos()
 
-  editarAlumno(){
+  editarAlumno() {
 
   }
-  eliminarAlumno(){
-    
+  eliminarAlumno() {
+
   }
 
-  
+
 }
