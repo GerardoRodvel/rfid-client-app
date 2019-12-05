@@ -1,5 +1,4 @@
-  
-export class Alumno {
+  export class Alumno {
    id:number
    id_rfid:number
    matricula:number
