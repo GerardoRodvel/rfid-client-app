@@ -1,17 +1,17 @@
-
-.slider img{
-    width: 100%;
-}
-
 .alumnos{
-    top: 30px;
-    margin-left: 40px;
-    position: relative;
+    width: auto;
+    height:auto ;
+    top: 35px;
+    position: absolute;
 }
 
 .rfids{
-    top: -210px;
+    width: auto;
+    height:auto ;
     position: relative;
-    left: 600px;
+    top: 35px;
+    left: 580px;
 }
+
+
 

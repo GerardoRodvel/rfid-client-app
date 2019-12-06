@@ -2,52 +2,55 @@
 
  <img src="assets\salon1.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.75;"> 
 
-    <div class="alumnos">
-        <h1 class="title">Alumnos</h1>
-        <table class="table">
-           <thead>
-              <tr>
-                 <th><abbr><Strong>#</Strong></abbr></th>
-                 <th><Strong>Nombre</Strong></th>
-                 <th><Strong>Apellido</Strong></th>
-                 <th><abbr><Strong>Matricula</Strong></abbr></th>
-                 <th><abbr><Strong>RFID</Strong></abbr></th>
-              </tr>
-           </thead>
-           <tfoot>
-              <tr *ngFor="let alumno of alumnos">
-                 <th> {{alumno.id}} </th>
-                 <th> {{alumno.name}} </th>
-                 <th> {{alumno.last_name}} </th>
-                 <th> {{alumno.matricula}} </th>
-                 <th> {{alumno.id_rfid}} </th>
-              </tr>
-           </tfoot>
-        </table>
-
-    </div>
-
-
-    <div class="rfids">
-        <h1 class="title">RFID's</h1>
-        <table class="table">
-           <thead>
-              <tr>
-                 <th><abbr><Strong>#</Strong></abbr></th>
-                 <th><Strong>Numero RFID</Strong></th>
-                 <th><abbr><Strong>Status</Strong></abbr></th>
-                 <th><abbr><Strong>Asignado a Alumno</Strong></abbr></th>
-              </tr>
-           </thead>
-           <tfoot>
-              <tr *ngFor="let rfid of rfids">
-                 <th> {{rfid.id}} </th>
-                 <th> {{rfid.number_rfid}} </th>
-                 <th> {{rfid.status}} </th>
-                 <th> {{rfid.status}} </th>
-
-              </tr>
-           </tfoot>
-        </table>
-
-    </div>
+<div class="container">
+      <div class="alumnos">
+            <h1 class="title">Alumnos</h1>
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><abbr><Strong>#</Strong></abbr></th>
+                     <th><Strong>Nombre</Strong></th>
+                     <th><Strong>Apellido</Strong></th>
+                     <th><abbr><Strong>Matricula</Strong></abbr></th>
+                     <th><abbr><Strong>RFID</Strong></abbr></th>
+                  </tr>
+               </thead>
+               <tfoot>
+                  <tr *ngFor="let alumno of alumnos">
+                     <th> {{alumno.id}} </th>
+                     <th> {{alumno.name}} </th>
+                     <th> {{alumno.last_name}} </th>
+                     <th> {{alumno.matricula}} </th>
+                     <th> {{alumno.id_rfid}} </th>
+                  </tr>
+               </tfoot>
+            </table>
+    
+        </div>
+      
+    
+  
+        <div class="rfids">
+            <h1 class="title">RFID's</h1>
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><abbr><Strong>#</Strong></abbr></th>
+                     <th><Strong>Numero RFID</Strong></th>
+                     <th><abbr><Strong>Status</Strong></abbr></th>
+                     <th><abbr><Strong>Asignado a Alumno</Strong></abbr></th>
+                  </tr>
+               </thead>
+               <tfoot>
+                  <tr *ngFor="let rfid of rfids">
+                     <th> {{rfid.id}} </th>
+                     <th> {{rfid.number_rfid}} </th>
+                     <th> {{rfid.status}} </th>
+                     <th> {{rfid.status}} </th>
+    
+                  </tr>
+               </tfoot>
+            </table>
+        </div>
+      </div>
+  
